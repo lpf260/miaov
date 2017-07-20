@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<style>
+div { width:50px; height:50px; background:red; position:absolute; top:0; left:0; font-size:30px; text-align:center; line-height:50px; color:#000; border: 1px solid #000;}
+</style>
+
+<script>
+window.onload = function (){
+	var aDiv = document.getElementsByTagName('div');
+	var oBtn = document.getElementById('btn');
+	
+	oBtn.onclick=function(){
+		for( var i=0; i<10; i++ ){
+		document.body.innerHTML += '<div>' + i + '</div>';
+	}
+		for( var i=0; i<aDiv.length; i++ ){
+			aDiv[i].style.left =10 + i*60 + 'px';
+			aDiv[i].style.top =50+'px';
+			if (i%4==0) {
+				aDiv[i].style.backgroundColor='red';
+			}else if(i%4==1){
+			    aDiv[i].style.backgroundColor='yellow';
+			}else if(i%4==2){
+		        aDiv[i].style.backgroundColor='blue';
+			}else if(i%4==3){
+		        aDiv[i].style.backgroundColor='green';
+			}
+	   }
+	}
+	
+};
+</script>
+</head>
+
+<body>
+<input id="btn" type="button" value="自动生成10个li">
+</body>
+</html>

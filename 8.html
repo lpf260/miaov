@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>生成一组新闻</title>
+        <style>
+            
+        </style>
+        <script>
+            window.onload = function (){
+                var oBtn = document.getElementById('btn');
+                var oUl = document.getElementById('list');
+                var arr = [
+                    '·辣眼睛!男子在地铁站强吻保洁阿姨后逃离 (02/17 07:10)★★★',
+                    '·三星电子副会长李在镕被批捕 (02/17 06:24)★★★',
+                    '·毒杀金正男的两名女嫌犯声称受雇拍恶搞片 (02/17 04:53)★★★',
+                    '·公安部拟将行政拘留执行年龄降至14周岁 (02/17 04:26)★★★',
+                    '·巴基斯坦宗教场所发生自杀式爆炸袭击致72死 (02/17 00:08)★★★',
+                    '·马来西亚警方：金正男案嫌犯不属任何情报单位 (02/16 23:24)★★★'
+                ];
+                var length = arr.length;
+                
+                /*
+                    思路：
+                    1. 让按钮的disabled属性变为true oBtn.disabled = true;
+                    2. 先清空，再生成  缺陷：性能方面会多一步操作
+                    3. 判断  使用开关
+                */
+                var onOff = true;
+                oBtn.onclick = function (){
+                    //oUl.innerHTML = "";
+                    if( onOff ){
+                        for (var i=0; i<length; i++){
+                            oUl.innerHTML += "<li>"+arr[i]+"</li>";
+                        }
+                    }
+                    onOff = false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="按钮" id="btn" />
+        <ul id="list">
+        </ul>
+    </body>
+</html>

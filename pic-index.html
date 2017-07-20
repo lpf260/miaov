@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>自定义属性</title>
+        <style>
+            ul{
+                padding:0;margin:0;
+            }
+            li{
+                list-style:none;
+                
+            }
+            body{
+                background:#333;
+            }
+            #pic{
+                width:400px;height:500px;position:relative;margin:0 auto;
+                background:url('img/loader_ico.gif') no-repeat center;
+            }
+            #pic img{
+                width:400px;height:500px;
+            }
+            #pic ul{
+                width:40px;position:absolute;top:0;right:-50px;
+            }
+            #pic li{
+                width:40px;
+                height:40px;
+                margin-bottom:4px;
+                background:#666;
+                cursor:pointer;
+            }
+            #pic .active{
+                background:#FC3;
+            }
+            #pic span{
+                top:0;
+                
+            }
+            #pic p{
+                bottom:0;
+                margin:0;
+            }
+            #pic p,#pic span{
+                position:absolute;left:0;
+                width:400px;
+                height:30px;
+                line-height:30px;
+                text-align:center;
+                color:#fff;
+            }
+            #pic p{
+                
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var arrUrl = ['img/1.png','img/2.png','img/3.png','img/4.png'];
+                var arrText = [
+                    '老鹰',
+                    '美女',
+                    '靓妹',
+                    '面具'
+                ];
+                
+                var oDiv = document.getElementById('pic');
+                var oImg = oDiv.getElementsByTagName('img')[0];
+                var oSpan = oDiv.getElementsByTagName('span')[0];
+                var oP = oDiv.getElementsByTagName('p')[0];
+                var oUl = oDiv.getElementsByTagName('ul')[0];
+                var aLi = oUl.getElementsByTagName('li');
+                var num = 0;
+                var oldLi = null;
+                //初始化
+                oImg.src = arrUrl[num];
+                oSpan.innerHTML = 1 + num + '/' + arrUrl.length;
+                oP.innerHTML = arrText[num];
+                
+                //li active思路
+                //一：全部清空，当前添加
+                //二：清空上一个，当前添加
+                
+                for(var i=0;i<arrUrl.length;i++){
+                    oUl.innerHTML += '<li></li>';
+                }
+                oldLi = aLi[num];
+                aLi[num].className = "active"; //这里因为class也算保留字，所以加类，是用className
+                
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].index = i; //索引值，必须赋值才能用
+                    aLi[i].onclick = function (){
+                        oImg.src = arrUrl[this.index];
+                        oP.innerHTML = arrText[this.index];
+                        oSpan.innerHTML = 1 + this.index + '/' + arrUrl.length;
+                        
+                        //思路一
+                        /*
+                        for(var i=0;i<aLi.length;i++){
+                            aLi[i].className = '';
+                        }
+                        this.className = 'active';
+                        */
+                        //思路二
+                        oldLi.className = ''; 
+                        oldLi = this;
+                        this.className = 'active';
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="pic">
+            <img src="" />
+            <span>数量正在加载中</span>
+            <p>文字说明正在加载中。。。</p>
+            <ul>
+
+            </ul>
+        </div>
+    </body>
+</html>

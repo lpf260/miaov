@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>html属性</title>
+        <script>
+            window.onload = function (){
+                var oBtn        = document.getElementById('btn1');
+                var oSelect     = document.getElementById('select1');
+                var oSub        = document.getElementById('sub1');
+                oSub.onclick    = function (){
+                    alert(oBtn.value + ' || ' + oSelect.value);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        文本：<input id="btn1" type="text" value="" />
+        区域：
+        <select id="select1">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+            <option value="杭州">杭州</option>
+        </select>
+        <input type="submit" value="提交" id="sub1" />
+    </body>
+</html>

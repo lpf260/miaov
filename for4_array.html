@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>for循环</title>
+        <style>
+
+        </style>
+        <script>
+            window.onload = function (){
+                //将我的好友标成粉色#E47A90
+                var oUl = document.getElementById('list');
+                var aUl = oUl.getElementsByTagName('ul');
+                var len = aUl.length;
+                for(var i=0;i<len;i++){
+                    var aLi = aUl[i].getElementsByTagName("li");
+                    for(var j=0;j<aLi.length;j++){
+                        aLi[j].style.color = "#E47A90";
+                    }
+                    //return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ul id="list">
+            <li>
+                <h2>我的好友</h2>
+                <ul>
+                   <li>金少</li>
+                   <li>龙少</li>
+                   <li>二少</li>
+                </ul>
+            </li>
+            <ol><li>no</li><li>no</li><li>no</li><li>no</li></ol>
+            <li>
+                <h2>我的坏友</h2>
+                <ul>
+                    <li>大少</li>
+                    <li>三少</li>
+                    <li>四少</li>
+                </ul>
+            </li>
+            <ol><li>no</li><li>no</li><li>no</li><li>no</li></ol>
+            <li>
+                <h2>我的黑名单</h2>
+                <ul>
+                    <li>坏少</li>
+                    <li>黑少</li>
+                    <li>灰少</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

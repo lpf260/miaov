@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>作用域</title>
+        <style>
+            
+        </style>
+        <script>
+            //遇到重名的，只留下后者
+            //遇到函数与变量重名，会保留函数
+            //表达式可以修改预解析的值
+            //函数声明不能改变量的值
+            alert(a);
+            var a = 1;
+            alert( a );
+            function a(){
+                alert(2);
+            }
+            alert(a);
+            var a = 3;
+            alert(a);
+            function a(){
+                alert(4);
+            }
+            alert(a);
+            //a(); //这里会提示函数未定义
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

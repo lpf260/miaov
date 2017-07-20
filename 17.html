@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>购物车单价</title>
+        <style>
+            
+        </style>
+        <script>
+            window.onload = function(){
+                var oUl = document.getElementById("list");
+                var aLi = oUl.getElementsByTagName('li');
+                
+                for(var i=0;i<aLi.length;i++){
+                    fn1(aLi[i]);
+                }
+                
+                function fn1(oLi){
+                    var aBtn = oLi.getElementsByTagName('input');
+                    var oStrong = oLi.getElementsByTagName('strong')[0];
+                    var oEm = oLi.getElementsByTagName('em')[0];
+                    var oSpan = oLi.getElementsByTagName('span')[0];
+                    var n1 = Number(oStrong.innerHTML); //字符串类型，因为是从HTML中获得
+                    var n2 = parseFloat(oEm.innerHTML);
+                    
+                    
+                    aBtn[1].onclick = function (){
+                        //n1 += 1; //+=不仅仅是数学运算，在这里也能用作字符串运算
+                        n1++; //这里会进行隐形类型转换
+                        //alert(n1); //这里是01
+                        oStrong.innerHTML = n1;
+                        oSpan.innerHTML = n1*n2 + "元";
+                    }
+                    
+                    aBtn[0].onclick = function (){
+                        
+                        if(n1 > 0){
+                            n1 --;
+                        }else{
+                            n1 = 0;
+                        }
+                        oStrong.innerHTML = n1;
+                        oSpan.innerHTML = n1*n2 + "元";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ul id="list">
+            <li>
+                <input type="button" value="-" />
+                <strong>0</strong>
+                <input type="button" value="+" />
+                单价：<em>12.5元</em>
+                小计：<span>0元</span>
+            </li>
+            <li>
+                <input type="button" value="-" />
+                <strong>0</strong>
+                <input type="button" value="+" />
+                单价：<em>10.5元</em>
+                小计：<span>0元</span>
+            </li>
+            <li>
+                <input type="button" value="-" />
+                <strong>0</strong>
+                <input type="button" value="+" />
+                单价：<em>1元</em>
+                小计：<span>0元</span>
+            </li>
+            <li>
+                <input type="button" value="-" />
+                <strong>0</strong>
+                <input type="button" value="+" />
+                单价：<em>5元</em>
+                小计：<span>0元</span>
+            </li>
+            <li>
+                <input type="button" value="-" />
+                <strong>0</strong>
+                <input type="button" value="+" />
+                单价：<em>3元</em>
+                小计：<span>0元</span>
+            </li>
+            <li>
+                <input type="button" value="-" />
+                <strong>0</strong>
+                <input type="button" value="+" />
+                单价：<em>2元</em>
+                小计：<span>0元</span>
+            </li>
+        </ul>
+        <p>
+        商品合计共：0件，共花费: 0元
+        <br/>
+        其中最贵的商品单价是: 0元
+        </p>
+    </body>
+</html>

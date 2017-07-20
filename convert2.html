@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>数据类型</title>
+        <style>
+            
+        </style>
+        <script>
+            window.onload = function(){
+                // Number()  parseInt()  parseFloat()  强制类型转换
+                // 隐式类型转换: - * / %  变成数字
+                // +号是不行的，因为会作为连接符 200 + '3'  2003 变成字符串
+                // ++ -- 变成数字
+                // > < 
+                // alert('200' - 3); //197 
+                // ! 把右边的数据类型转为布尔值
+                // == 值比较
+                // === 先判断类型，在比较值
+                alert('10' > '9'); //false  数字的比较与字符串的比较是不一样的，字符串是按一位一位的比较，'10' 和 '9'比较，会先拿1和9对比
+                alert('10' > 9); //true
+                //alert('----' - 9) NaN 因为第一个'----'强制转换失败，因此是NaN
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

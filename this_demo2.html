@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>getElementsByTagName</title>
+        <style>
+            li{
+                width:100px;
+                height:150px;
+                float:left;
+                margin-right:30px;
+                background:#f1f1f1;
+                position:relative;
+            }
+            div{
+                width:80px;
+                height:200px;
+                background:blue;
+                position:absolute;
+                top:75px;
+                left:10px;
+                display:none;
+            }
+        </style>
+        <script>
+            window.onload = function (){
+                var aLi = document.getElementsByTagName('li');
+                var that = null;
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].onmouseover = function (){
+                        this.getElementsByTagName('div')[0].style.display = 'block';
+                    }
+                    
+                    aLi[i].onmouseout = function (){
+                        this.getElementsByTagName('div')[0].style.display = 'none';
+                    }
+                }
+                
+                function fn1(){
+                
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li>
+                <div></div>
+            </li>            
+            <li>
+                <div></div>
+            </li>            
+            <li>
+                <div></div>
+            </li>            
+            <li>
+                <div></div>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>html属性</title>
+        <style>
+
+        </style>
+        <script>
+            window.onload = function (){
+                var oInp = document.getElementById('inp1');
+                oInp.onclick = function (){
+                    oInp.type = 'checkbox'; 
+                    //IE不兼容
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" id="inp1" />
+        <div id="div1"></div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>数据类型</title>
+        <style>
+            
+        </style>
+        <script>
+            window.onload = function(){
+                //ECMAScript: 标准  核心
+                //js中的数据类型 number , 字符串 ，布尔值， 函数类型  对象  null
+                /*
+                    typeof 判断数据类型
+                */
+                var i = 100;
+                //alert(typeof(i)); //也可以使用 typeof i
+                var s = 'miaov';
+                //alert(s.length);
+                //alert(s.charAt(1)); //charAt能弹出对应的字符,从0开始
+                function fun1(){
+                    alert(111);
+                }
+                
+                //alert(fun1);
+                
+                //只要是对象，就可以放自定义属性，即使是数组
+                var json = {name:'大毛',age:'5'}
+                alert(json.name);
+                
+                alert(null);
+                
+                var u;
+                alert(u);
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

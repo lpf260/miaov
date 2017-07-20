@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>全局变量</title>
+        <style>
+            li{
+                height:24px;
+                margin-bottom:4px;
+                list-style:none;
+            }
+        </style>
+        <script>
+            window.onload = function (){
+                var oBtn = document.getElementById('int');
+                var oUl = document.getElementsByTagName('ul')[0];
+                var aInput  = oUl.getElementsByTagName('input');
+                oBtn.onclick = function (){
+                    for(var i=0;i<aInput.length;i++){
+                        //aInput[i].checked = !aInput[i].checked
+                        if(aInput[i].checked == true){
+                            aInput[i].checked = false;
+                        }else{
+                            aInput[i].checked = true;
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="反选" id="int" />
+        <ul>
+            <li><input type="checkbox"  /></li>
+            <li><input type="checkbox"  /></li>
+            <li><input type="checkbox"  /></li>
+            <li><input type="checkbox"  /></li>
+            <li><input type="checkbox"  /></li>
+            <li><input type="checkbox"  /></li>
+            <li><input type="checkbox"  /></li>
+        </ul>
+    </body>
+</html>

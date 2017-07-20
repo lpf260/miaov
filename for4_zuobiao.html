@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>for循环</title>
+        <style>
+            div{
+                width:50px;
+                height:50px;
+                background:red;
+                position:absolute;
+                top:0;
+                left:0;
+                font-size:30px;
+                text-align:center;
+                line-height: 50px;
+                color:#fff;
+            }
+        </style>
+        <script>
+            window.onload = function (){
+                var aDiv = document.getElementsByTagName('div');
+                for(var i=0;i<10;i++){
+                    document.body.innerHTML += '<div>' + i +'</div>';
+                }
+                
+                for(var i=0; i<aDiv.length; i++){
+                    if(i > 5){
+                        aDiv[i].style.left = i*50 + 'px'; 
+                        aDiv[i].style.top = (5*50 - 50 * (i - 5)) + 'px';
+                    }else{
+                        aDiv[i].style.left = i*50 + 'px';
+                        aDiv[i].style.top = i*50 + 'px';
+                    }
+                }
+                
+                //10个div即换行 %
+                
+                //来一个v字形div
+                
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

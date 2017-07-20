@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>for循环作业</title>
+        <style>
+            div{
+                width:50px;
+                height:50px;
+                position:absolute;
+                font-size:30px;
+                line-height:50px;
+                color:#000;
+                text-align:center;
+                top:20px;
+                left:0;
+            }
+        </style>
+        <script>
+            window.onload = function (){
+                var oBtn = document.getElementById('btn');
+                var oBtn1 = document.getElementById('btn1');
+                var oDiv = document.getElementById('list');
+                var onOff = true;
+                oBtn.onclick = function (){
+                    if( onOff ){                        
+                        for(var i=0;i<10;i++){
+                            oDiv.innerHTML += "<div>" + i + "</div>";
+                            oDiv.getElementsByTagName('div')[i].style.left = i*60;
+                            if(i % 4 == 0){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'red';
+                            }                            
+                            if(i % 4 == 1){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'yellow';
+                            }                            
+                            if(i % 4 == 2){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'blue';
+                            }                            
+                            if(i % 4 == 3){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'green';
+                            }
+                        }
+                    }
+                    onOff = false;
+                }
+                
+                oBtn1.onclick = function (){
+                    if( onOff ){                       
+                        for(var i=0;i<100;i++){
+                            oDiv.innerHTML += "<div>" + i + "</div>";
+                            oDiv.getElementsByTagName('div')[i].style.left = i*60;
+                            if(i % 4 == 0){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'red';
+                            }                            
+                            if(i % 4 == 1){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'yellow';
+                            }                            
+                            if(i % 4 == 2){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'blue';
+                            }                            
+                            if(i % 4 == 3){
+                                oDiv.getElementsByTagName('div')[i].style.background = 'green';
+                            }
+                        }
+                    }
+                    onOff = false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="自动生成10个li" id="btn" />
+        <input type="button" value="十个li自动换行" id="btn1" />
+        <div id="list">
+        </div>
+    </body>
+</html>

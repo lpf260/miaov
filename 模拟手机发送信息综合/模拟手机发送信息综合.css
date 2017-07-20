@@ -1,0 +1,63 @@
+input{
+	padding: 0;
+	margin: 0;
+}
+img{
+	border: 0;
+	vertical-align: middle;
+}
+#div1{
+	width: 280px;
+	height: 400px;
+	background: #f1f1f1;
+	border: 1px solid #000;
+	padding: 10px;
+	overflow: scroll;
+	color: #000;
+}
+#div2{
+	height: 30px;
+	line-height: 30px;
+}
+#text{
+	width: 200px;
+	padding: 5px;
+}
+#btn{
+	width: 50px;
+}
+img{
+	width: 30px;
+	height: 30px;
+}
+
+.girl{
+	background: #f4cccc;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	float: left;
+	clear: right;
+	max-width: 200px;
+	word-break: break-all;
+	border: 1px solid #999;
+
+}
+.boy{
+	background: #6fa8dc;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	float: right;
+	clear: left;
+	max-width: 200px;
+	word-break: break-all;
+	border: 1px solid #999;
+
+}
+.left{
+	float: left;
+	clear: both;
+}
+.right{
+	float: right;
+	clear: both;
+}

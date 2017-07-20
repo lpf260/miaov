@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{ margin:0; padding: 0;}
+		div{ width: 50px;height: 50px;position: absolute;}
+		img{ width: 510px;height: 510px;vertical-align: top;overflow: hidden; }
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			
+			var aDiv = document.getElementsByTagName('div');
+			// 第二种循环方法（对10取余）见test.html
+			for(var i=0;i<10;i++){
+				for(var j=0;j<10;j++){
+					document.body.innerHTML +='<div></div>';
+					aDiv[i*10+j].style.left = j*51 + 'px';
+					aDiv[i*10+j].style.top = i*51 + 'px';
+					aDiv[i*10+j].style.background = '#f1f1f1';
+					aDiv[i*10+j].style.border = '1px solid #f1f1f1';
+				}
+			}
+			
+			for(var i=0;i<10;i++){
+				for(var j=0;j<10;j++){
+					aDiv[i*10+j].onmouseover = function () {
+						this.style.background = 'none';
+					};
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+<img src="img/pic.jpg"/>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>自定义属性</title>
+        <style>
+            li{
+                list-style:none;
+                width:106px;
+                height:115px;
+                float:left;
+                margin-right:20px;
+                background:url('img/default.png');
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var aLi = document.getElementsByTagName('li');
+                var onOff = true;
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].onOff = true;
+                    aLi[i].onclick = function (){
+                        if(this.onOff == true){
+                            this.style.background = "url('img/active.png')";
+                            this.onOff = false;
+                        }else{
+                            this.style.background = "url('img/default.png')";
+                            this.onOff = true;
+                        }
+                    }
+                }
+                //背景不能判断，颜色值不能判断，相对路径不能判断
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li onOff=true></li>
+            <li onOff=true></li>
+            <li onOff=true></li>
+        </ul>
+    </body>
+</html>

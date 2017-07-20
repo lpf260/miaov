@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>getElementsByTagName</title>
+        <style>
+            
+        </style>
+        <script>
+            window.onload = function (){
+                //如果整个页面只有一个标签比如body， 则可以直接使用
+                //document.title = 123456;
+                //document.body.innerHTML = "abc";  //改body的内容必须加上innerHTML, 而title不能加innerHTML
+                var oBtn = document.getElementsByTagName("input");
+                
+                document.body.innerHTML = "<input type='button' value='按钮' /><input type='button' value='按钮' /><input type='button' value='按钮' />";
+                oBtn[0].onclick = function (){
+                    alert(1);
+                }
+                oBtn[1].onclick = function (){
+                    alert(2);
+                }
+                oBtn[2].onclick = function (){
+                    alert(3);
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>全局变量</title>
+        <style>
+            
+        </style>
+
+    </head>
+    <body>
+        <input type="button" value="按钮1" />
+        <input type="button" value="按钮2" />
+        <input type="button" value="按钮3" />
+        <script>
+            var aBtn = document.getElementsByTagName('input');
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].onclick = function (){
+                    aBtn[i].style.background = 'blue';
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>自定义属性</title>
+        <style>
+            li{
+                list-style:none;
+                width:106px;
+                height:115px;
+                float:left;
+                margin-right:20px;
+                background:url('img/default.png');
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var aBtn = document.getElementsByTagName('input');
+                //for里面有函数的时候，先不用i
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].index = i; //自定义属性(添加索引值)
+                    
+                    aBtn[i].onclick = function (){
+                        //alert(i);  //这里是3
+                        alert(this.index);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="btn1" />
+        <input type="button" value="btn2" />
+        <input type="button" value="btn3" />
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>cssText</title>
+        <style>
+
+        </style>
+        <script>
+            window.onload = function (){
+                var oDiv            = document.getElementById('test');
+                var oBtn = document.getElementById('btn');
+                oDiv.onclick = function (){
+                    oDiv.style.cssText  = "width:500px;height:500px";
+                }
+                oBtn.onclick = function (){
+                    oDiv.style.cssText = "width:200px";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="test" style="width:200px;height:100px;border:1px solid #000;">
+            测试cssText属性
+        </div>
+        <input type="button" value="按钮" id="btn" />
+    </body>
+</html>

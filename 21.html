@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>作用域</title>
+        <style>
+            
+        </style>
+        <script>
+            /*
+            //预解析： var function 参数
+            //逐行解读
+            //作用域链
+            var a = 1;
+            function fn1(){
+                alert(a);
+                var a = 2; //加上这句，就会弹出undefined, 不加，就会弹出1， 因为函数内部也会预解析
+            }
+            fn1();
+            alert(a);
+            */
+            
+            var a = 1;
+            function fn1(a){
+                alert(a);
+                a = 2;
+            }
+            fn1();
+            alert(a);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

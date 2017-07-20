@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>模拟手机短信发送</title>
+  <style>
+  *{margin:0;padding:0;}
+  
+  #wrap{width:280px; height:590px; background:url(images/bg.png); position:relative; margin:0 auto;}
+  #cont{width:215px;height:350px; position:absolute; left:23px; top:83px; padding:10px;; overflow:auto; overflow-x:hidden;}
+ 
+ .box{width:208px;height:auto;overflow:hidden; }
+ .floatRl{max-width:190px;background:green; float:right; color:#fff;margin-top:5px;}
+ .floatRr{width:30px;height:30px; background:url(images/bq1.gif); float:right;}
+ .floatLl{max-width:190px;background:#ccc; float:left; color:#000;margin-top:5px;}
+ .floatLr{width:30px;height:30px; background:url(images/bq2.gif); float:left;}
+ 
+  #ipt{width:137px;height:32px;position:absolute;top:466px;left:68px; border:none;border-radius:8px;}
+  #tx{width:30px; height:30px; background:url(images/bq1.gif); position:absolute;left:30px;top:466px;}
+  #fs{width:47px; height:34px; background:url(images/fs.jpg); position:absolute;right:22px;top:466px; cursor:pointer;}
+
+  </style>
+  <script>
+	window.onload = function(){
+		var oCont = document.getElementById('cont');
+		var oTx = document.getElementById('tx');
+		var oFs = document.getElementById('fs');
+		var oIpt = document.getElementById('ipt');
+		var txKey = true;
+		var num = 0;
+		
+		var arrUrl = ['url(images/bq2.jpg)', 'url(images/bq1.jpg)'];
+		
+		oTx.onclick = function(){
+			if(txKey){
+				oTx.style.background = arrUrl[0];
+				txKey = false;
+			}else{
+				oTx.style.background = arrUrl[1];
+				txKey = true;
+			}
+		}
+		
+		oFs.onclick = function(){
+			if(oIpt.value == ''){
+				alert('写点什么呗！！');
+				oIpt.focus();
+			}else{
+				if(txKey){
+					oCont.innerHTML = "<div class='box'><div class='floatRr'></div><div class='floatRl'>说："+oIpt.value+"</div></div>" + oCont.innerHTML;
+					oIpt.value = '';
+					oIpt.focus();
+				}else{
+					oCont.innerHTML = "<div class='box'><div class='floatLr'></div><div class='floatLl'>说："+oIpt.value+"</div></div>" + oCont.innerHTML;
+					oIpt.value = '';
+					oIpt.focus();
+				}
+			}
+		}
+	};
+  </script>
+ </head>
+ <body>
+	<div id='wrap'>
+		<div id='cont'></div>
+		<input id='ipt' type='text'>
+		<span id='tx'></span>
+		<span id='fs'></span>
+	</div>
+ </body>
+</html>

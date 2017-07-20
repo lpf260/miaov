@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    *{padding: 0; margin: 0;}
+	    .main{position: relative;width: 1000px; height: 500px; margin: 100px auto;}
+	    .content{width: 1000px; height: 500px; margin: 200px auto;}
+	    .content h3{font-size: 20px; font-weight: bold; border-bottom: 1px solid #000; height: 48px; line-height: 48px;}
+	    .content ul{}
+	    .content li{float: left; margin: 30px; list-style: none;}
+	    .content p{font-size: 15px; font-weight: bold; text-align: center;height: 20px;line-height: 20px;margin-top: 10px;}
+	    .content span{display:block;font-size: 15px; text-align: center;height: 20px;line-height: 20px;color: #717171;}
+	    .div1{width: 310px;height: 180px;background: url(images/bg.png) no-repeat;margin:0 auto;padding: 15px 20px 32px 20px;position: relative;}
+	    .div1 h3{font-size: 20px;}
+	    .div1 .p1{font-size: 16px;padding-top: 15px; color: #818182;}
+	    .div1 #btn{width: 108px;height: 36px;border-radius: 5px;background: #6bbd42;color: #FFF;font-size: 15px;text-align: center;position: absolute;top: 22px;right: 20px;}
+	    .div1 .p2{font-size: 16px;padding-top: 20px; color: #000;width: 270px;font-weight:bold;line-height: 25px;}
+	    .div2{margin-top: 8px;}
+	    .div2 .span1{float: left; background: url(images/star.png) no-repeat;display: block;width: 97px;height: 17px;padding-left: 105px;font-size: 15px;line-height: 17px;color: #fe002c;font-weight: bold;}
+	    .div2 .p3{float:right;font-size: 15px;line-height: 17px;color: #000;font-weight: bold;}
+	    .div2 .span2{color: #fe002c;font-weight: bold;}
+	    #div3{position: absolute;top:-100px;left: 50px;display: none;}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+        var oContent=document.getElementById('content');
+        var oDiv3=document.getElementById('div3');
+        var aImg=oContent.getElementsByTagName('img');
+        var len=aImg.length;
+        debugger
+
+        for(var i=0;i<len;i++){
+        	aImg[i].index=i;
+        	aImg[i].onmouseover=function(){
+        		if (this.index<6) {
+        			oDiv3.style.top=-100+'px';
+            	    oDiv3.style.left=50+this.index*160+'px';
+            	} else{
+                    oDiv3.style.left=50+(this.index-6)*160+'px';
+                    oDiv3.style.top=120+'px';
+            	}      
+
+                oDiv3.style.display='block';
+                       
+
+        	}
+        	aImg[i].onmouseout=function(){
+        		oDiv3.style.display='none';
+        	}
+        }
+	}
+	</script>
+</head>
+<body>
+<div class="main">
+	<div class="content" id="content">
+	    <h3>最新上线</h3>
+	    <ul>
+	        <li>
+	            <img src="images/1.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/2.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/3.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/4.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/5.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/6.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/7.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/8.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/9.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/10.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/11.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	        <li>
+	            <img src="images/12.png">
+	            <p>娱乐观</p>
+	            <span>新闻类</span>
+	        </li>
+	    </ul>
+	</div>
+	<div class="div3" id="div3">
+	<div class="div1">
+	    <h3>搜狐汽车图库</h3>
+	    <p class="p1">生活</p>
+	    <input id="btn" type="button" value="添加">
+	    <p class="p2">搜狐汽车是中国最具人气和影响力的门户汽车网站，为您提供专业的汽车</p>
+	    <div class="div2">
+	    <span class="span1">5.0</span>
+	    <p class="p3"><span class="span2">76876</span>人已添加</p>
+	    </div>
+	    </div>
+	</div>
+	</div>
+</body>
+</html>

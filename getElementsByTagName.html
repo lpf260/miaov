@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>getElementsByTagName</title>
+        <style>
+            
+        </style>
+        <script>
+            window.onload = function (){
+                //获取所有li标签
+                var oLi = document.getElementsByTagName('li');
+                //alert(oLi.length);  //输出4， 使用document加上getElementsByTagName会获取页面上所有li
+                
+                //只获取ul内部的li标签
+                var oUl = document.getElementsByTagName('ul');
+                var oUlLi = oUl[0].getElementsByTagName('li');
+                alert(oUlLi.length); //输出3
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        
+        <ol>
+            <li></li>
+        </ol>
+    </body>
+</html>

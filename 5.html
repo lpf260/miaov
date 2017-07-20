@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>html属性</title>
+        <style>
+
+        </style>
+        <script>
+            window.onload = function (){
+                var oImg = document.getElementById('img1');
+                var onOff = true; //开关：布尔值
+                //数组
+                var arr = ['这是一句话','这是第二句话','这是第三句话'];
+                //alert( arr.length ); //数组元素个数有三个元素，分别是：0 1 2
+                //alert( arr[0] ); //第一个元素
+                //alert(arr[arr.length - 1]); //最后一个元素
+                arr.push('我是最后一句话'); 
+                alert( arr ); //弹出所有内容，以逗号分割
+                oImg.onclick = function (){
+                    if( onOff ){
+                        oImg.src = "img/thumb1.jpg";
+                        onOff = false;
+                    }else{
+                        oImg.src = "img/thumb2.jpg";
+                        onOff = true;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <a id="prev" href="javascript:;">&lgt;</a>
+        <a id="next" href="javascript:;">&rgt;</a>
+        <p id="text">这是第一张图片</p>
+        <span id="span1">1 / 4</span>
+        <img id="img1" src="img/thumb1.jpg" />
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>数据类型</title>
+        <style>
+            
+        </style>
+        <script>
+            /*
+                NaN   Not a Number
+                NaN是false
+            */
+            //一旦写程序中出现：NaN 表示进行了非法运算 自己和自己比较，都是相等的，除了NaN
+            var a = Number('abc');
+            alert(typeof(a)); //number
+            if( a ){
+                alert('真');
+            }else{
+                alert('假');
+            }
+            
+            alert(a === a);  //false NaN与自己都不想等
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

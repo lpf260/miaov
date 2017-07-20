@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for应用1</title>
+	<style type="text/css">
+	li{
+		width: 50px;height: 50px;background: green;position: absolute;top: 0;left: 0;text-align: center;line-height: 50px;color: #FFF;margin:0;padding:0;list-style: none;
+	}
+
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oLi=document.getElementsByTagName('li');
+		var oBtn=document.getElementById('btn');
+		var oBox=document.getElementById('box')
+		var click=0;
+		var len=oLi.length;
+    
+        oBtn.onclick=function(){
+        oBox.innerHTML='';
+
+
+        if (click%4==0) {
+	        for(var i=0; i<5;i++){
+			oBox.innerHTML+='<li>'+i+'</li>';			
+
+				oLi[i].style.left=10+i*50+'px';
+				if (i<3) {	
+				    oLi[i].style.top=150-i*50+'px';
+				}else{
+					oLi[i].style.top=(i-2)*50+50+'px';
+				}				
+			}	
+	        	        		        
+        }else if(click%4==1){
+        	for(var i=0; i<5;i++){
+			oBox.innerHTML+='<li>'+i+'</li>';
+        			
+				oLi[i].style.top=50+i*50+'px';
+				if (i<3) {	
+				    oLi[i].style.left=10+i*50+'px';
+				}else{
+					oLi[i].style.left=(4-i)*50+10+'px';
+				}				
+			}	
+        }else if(click%4==2){
+        	for(var i=0; i<5;i++){
+			oBox.innerHTML+='<li>'+i+'</li>';
+					
+				oLi[i].style.left=50+i*50+'px';
+				if (i<3) {	
+			    oLi[i].style.top=50+i*50+'px';
+			}else{
+				oLi[i].style.top=(4-i)*50+50+'px';
+			    }				
+			}	
+        }else{
+        	for(var i=0; i<5;i++){
+			oBox.innerHTML+='<li>'+i+'</li>';
+
+				oLi[i].style.top=50+i*50+'px';
+				if (i<3) {	
+				    oLi[i].style.left=150-i*50+'px';
+				}else{
+					oLi[i].style.left=(i-2)*50+50+'px';
+				}
+				
+			}	
+        }
+      	click++;  
+
+	}
+}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="自动生成V字形">
+	<ul id="box"></ul>
+</body>
+</html>

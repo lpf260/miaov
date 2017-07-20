@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<style>
+.div2{ width:50px; height:50px; background:red; position:absolute;  font-size:30px; text-align:center; line-height:50px; color:#fff;margin:5px; font-weight:bolder; }
+</style>
+
+<script>
+window.onload = function (){
+    var oDiv = document.getElementById("div1");
+    var aDiv = oDiv.getElementsByTagName('div');
+    var aBtn = document.getElementsByTagName("input");
+    var num = 100;
+    var onoff = true;
+    var arrColor = ["gray","yellow","green","pink"]
+    
+    aBtn[0].onclick = function(){
+        for( var i=1; i<=num; i++ ){
+            oDiv.innerHTML += '<div class="div2">' + i + '</div>';
+        }
+        for( var i=0; i<num; i++ ){
+            aDiv[i].style.left =  i*60 +"px";
+        }
+    }
+    aBtn[1].onclick = function(){
+        for( var i=0;i<num;i+=10){
+            for( var j=0;j<10; j++){
+                aDiv[i+j].style.left = j*60 +"px"; 
+                aDiv[i+j].style.top = 30+i*6 +"px";
+            }
+        }
+    }
+    aBtn[2].onclick = function(){
+        for( var i=0;i<num; i+=4){
+             for( var j=0;j<4; j++){
+                aDiv[i+j].style.background = arrColor[j];
+             }
+        }
+    }
+    aBtn[3].onclick = function(){
+        if(onoff){
+            fnto();
+            onoff = false;
+        }else{
+            fn();
+            onoff = true;
+        }
+    }
+
+    function fn (){
+        oDiv.innerHTML = "";
+        for( var i=0; i<11; i++ ){
+            oDiv.innerHTML += '<div class="div2">' + i + '</div>';
+            aDiv[i].style.left = i*60 +"px";
+        }
+        for(var i=0; i<6; i++){
+            aDiv[i].style.top = 11*60 - i*60 +"px";
+        }
+        for(var i=6; i<11; i++){
+            aDiv[i].style.top = 60 + i*60 +"px";
+        }
+    }
+    function fnto(){
+        oDiv.innerHTML = "";
+        for( var i=0; i<11; i++ ){
+            oDiv.innerHTML += '<div class="div2">' + i + '</div>';
+            aDiv[i].style.left = i*60 +"px";
+        }
+        for(var i=0; i<6; i++){
+            aDiv[i].style.top = 60 + i*60 +"px";
+        }
+        for(var i=6; i<11; i++){
+            aDiv[i].style.top = 11*60 - i*60 +"px";
+        }
+    }
+
+
+    
+};
+</script>
+</head>
+
+<body>
+    <input type="button" value="自动生成" />
+    <input type="button" value="自动换行" />
+    <input type="button" value="自动变色" />
+    <input type="button" value="自动V型" />
+    <div id="div1"></div>
+</body>
+</html>

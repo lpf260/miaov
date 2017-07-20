@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>模拟发送短信</title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            #container{
+                background:url('images/bg.png');
+                width:289px;
+                height:593px;    
+                margin:0;
+                padding:0;
+                
+            }
+            
+            #chat{
+                width:240px;
+                height:372px;
+                position:absolute;
+                top:82px;
+                left:24px;
+                overflow:scroll;
+            }
+            
+            #chatspan{
+                margin: 10px;
+            }
+            #img1{
+                position:absolute;
+                top:467px;
+                left:31px;
+                cursor: pointer;
+            }
+            #input1{
+                width:138px;
+                height:34px;
+                position:absolute;
+                top:464px;
+                left:66px;
+                border-radius:2px;
+            }
+            #span1{
+                font-size:23px;
+                position:absolute;
+                top:466px;
+                left:211px;
+                color: #8c8494;
+                cursor: pointer;
+            }
+            #span1:hover{
+                background: #ddd;
+            }
+            .div1{
+                height:30px;
+                margin:10px 0;
+            }
+            .floatleft{
+                float:left;
+            }            
+            .floatright{
+                float:right;
+            }
+            .span2{
+                line-height：40px;
+                background: green;
+                color: #fff;
+                height:40px;
+            }
+            .span3{
+                line-height：40px;
+                background: blue;
+                color: #fff;
+                height:40px;
+            }
+        </style>
+        <script>
+            window.onload = function (){
+                var oChat = document.getElementById('chat');
+                var oImg = document.getElementById('img1');
+                var oChat = document.getElementById('chat');
+                var oSpan = document.getElementById('span1');
+                var oInput = document.getElementById('input1');
+                
+                var imgArr = ['images/bq1.gif','images/bq2.gif'];
+                var onOff = true;
+                oImg.onclick = function (){
+                    if( onOff ){
+                        oImg.src = imgArr[1];
+                        onOff = false;
+                    }else{
+                        oImg.src = imgArr[0];
+                        onOff = true;
+                    }
+                }
+                
+                //点击发送提交
+                oSpan.onclick = function (){
+                    var textValue = oInput.value; //聊天内容
+                    if( onOff ){
+                        var imgTextValue = "<div class='div1'><span class='floatleft'><img src=" + oImg.src + " />" + ": <span class='span2'>"+ textValue +"</span></span></div>";
+                    }else{
+                        var imgTextValue = "<div class='div1'><span class='floatright'><img src=" + oImg.src + " />" + ": <span class='span3'>"+ textValue +"</span></span></div>";
+                    }
+                   
+                    oChat.innerHTML = imgTextValue + oChat.innerHTML;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="chat">
+               
+            </div>
+            <div class="main">
+                <img src="images/bq1.gif" id="img1" />
+                <input id="input1" type="text" value="" />
+                <span id="span1">发送</span>
+            </div>
+        </div>
+    </body>
+</html>

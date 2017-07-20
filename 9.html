@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>生成一组新闻</title>
+        <style>
+            
+        </style>
+
+    </head>
+    <body>
+        <input type="button" value="按钮" id="btn" />
+    </body>
+    <script>
+          
+        /*
+            HTML标签属性、自定义属性
+        */
+        var aBtn = document.getElementsByTagName("input");
+        aBtn[0].abc = 123;  //自定义属性
+        //alert(aBtn[0].abc); //相当于给button按钮加了一个属性
+        //js可以为任何HTML元素添加任意个自定义属性
+        for(var i=0; i<aBtn.length; i++){
+            aBtn[i].abc = 123;
+            aBtn[i].xyz = true;
+        }        
+                
+            
+    </script>
+</html>
