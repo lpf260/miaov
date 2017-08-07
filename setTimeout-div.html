@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            #div1{
+                width: 10px;
+                height:100px;
+                background: red;
+                position: absolute;
+                top:50px;
+                left:0px;
+            }
+        </style>
+        <script src='./miaov.js'></script>
+        <script>
+            window.onload = function(){
+                var oBtn = document.getElementById('btn1');
+                var oDiv = document.getElementById('div1');
+                //oDiv.timer = null; //这样做的好处在于不用声明就可以在后面清除使用
+                alert(timer);
+                oBtn.onclick = function(){
+                    //alert(getStyle(oDiv,'left')); //'30px'
+
+                    clearInterval(oDiv.timer);
+                    oDiv.timer = setInterval(function (){
+                        var speed = parseInt(getStyle(oDiv,'left')) + 2;
+                        //在这里做了限定之后，运动在最后一次并不是匀速，而是会根据距离跳到800，如果想匀速到800还得算平均速度，则需要改speed的值
+                        if(speed > 800){
+                            speed = 800;
+                        }
+
+                        oDiv.style.left = speed + 'px';
+                        if(speed == 800){
+                            clearInterval(oDiv.timer);
+                        }
+                    },30);
+
+                }
+                function getStyle(obj, attr){
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id='btn1' type='button' value="按钮" />
+        <div id='div1'></div>
+    </body>
+</html>

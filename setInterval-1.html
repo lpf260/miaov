@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+        </style>
+        <script>
+            /*
+                定时器： 时间概念
+                var timer = setInterval(fn,time)
+                clearInterval(timer)
+            */
+
+            var i = 0;
+            var timer = null;
+            function fn1(){
+                document.title = i;
+                i++;
+                if( i == 10 ){
+                    clearInterval(timer);
+                }
+            }
+            timer = setInterval(fn1,1000);
+
+        </script>
+    </head>
+    <body>
+
+
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            body{
+                background: url('img/1.png');
+                text-align: center;
+            }
+            img{
+                display: none;
+            }
+        </style>
+        <script>
+            /*
+                定时器： 时间概念
+                var timer = setInterval(fn,time)
+                clearInterval(timer)
+                var timer1 = setTimeout(fn.time)  定时执行执行一次
+                clearTimeout(timer1)
+            */
+            window.onload = function (){
+                setTimeout(function (){
+                    document.getElementsByTagName('img')[0].style.display = 'inline-Block';
+                    //关闭(要写在setTimeout里面，直接放下面不可以，属于异步，时间都算在内的)
+                    setTimeout(function (){
+                        document.getElementsByTagName('img')[0].style.display = 'none';
+                    },3000);
+                },2000);
+
+            }
+        </script>
+    </head>
+    <body>
+        <img src='img/4.jpg' tile=''/>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            body{
+                background: url('img/1.png');
+            }
+        </style>
+        <script>
+            /*
+                定时器： 时间概念
+                var timer = setInterval(fn,time)
+                clearInterval(timer)
+            */
+            window.onload = function (){
+                var aBtn    = document.getElementsByTagName('input');
+                var arrUrl  = ['img/1.png','img/2.png','img/3.png','img/4.png'];
+
+                var oBody = document.body;
+
+
+                var timer = null;
+                var i = 0;
+
+
+                function fn1(){
+
+                    oBody.style.background = 'url(' + arrUrl[i] + ')';
+                    i++;
+                    i %= arrUrl.length; //永远不要忘记当只想取0,1,2,3时取模是最聪明的做法
+                }
+
+                aBtn[0].onclick = function (){
+                    clearInterval(timer);   //null、未定义
+                    timer = setInterval(fn1,1000);
+                }
+                aBtn[1].onclick = function (){
+                    clearInterval(timer);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type='button' value='换背景' />
+        <input type='button' value='暂停' />
+    </body>
+</html>
