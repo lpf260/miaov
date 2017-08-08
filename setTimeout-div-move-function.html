@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            #div1{
+                width: 10px;
+                height:100px;
+                background: red;
+                position: absolute;
+                top:50px;
+                left:0px;
+            }
+        </style>
+        <script src='./miaov.js'></script>
+        <script>
+            window.onload = function(){
+                var oBtn1 = document.getElementById('btn1');
+                var oBtn2 = document.getElementById('btn2');
+                var oDiv = document.getElementById('div1');
+                oBtn1.onclick = function(){
+
+                    doMove(oDiv,'top',40,10);
+                }
+
+                oBtn2.onclick = function(){
+                    doMove(oDiv,'top',800,10);
+                }
+                function getStyle(obj, attr){
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+                }
+
+                function doMove(obj, attr, limit, spv){
+                    spv = parseInt(getStyle(obj,attr)) > limit ? -spv : spv;  
+
+                    clearInterval(obj.timer);
+                    obj.timer = setInterval(function (){
+                        var speed = parseInt(getStyle(obj,attr)) + spv;
+
+                        //向前或者向后
+                        if(speed > limit & spv > 0 || speed < limit && spv < 0){
+                            speed = limit; //因为都是speed = limit, 所以可以用||
+                        }
+
+
+                        obj.style[attr] = speed + 'px';
+                        console.log(speed);
+                        if(speed == limit){
+                            clearInterval(obj.timer);
+                        }
+                    },30);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id='btn1' type='button' value="往上" />
+        <input id='btn2' type='button' value="往下" />
+        <div id='div1'></div>
+    </body>
+</html>

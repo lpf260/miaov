@@ -19,7 +19,6 @@
                 var oBtn = document.getElementById('btn1');
                 var oDiv = document.getElementById('div1');
                 //oDiv.timer = null; //这样做的好处在于不用声明就可以在后面清除使用
-                alert(timer);
                 oBtn.onclick = function(){
                     //alert(getStyle(oDiv,'left')); //'30px'
 
@@ -33,9 +32,11 @@
 
                         oDiv.style.left = speed + 'px';
                         if(speed == 800){
-                            clearInterval(oDiv.timer);
+                            clearInterval(oDiv.timer); 
                         }
                     },30);
+
+
 
                 }
                 function getStyle(obj, attr){
@@ -45,7 +46,7 @@
         </script>
     </head>
     <body>
-        <input id='btn1' type='button' value="按钮" />
+        <input id='btn1' type='button' value="向前" />
         <div id='div1'></div>
     </body>
 </html>

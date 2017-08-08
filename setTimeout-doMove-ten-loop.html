@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            div{
+                width: 50px;
+                height:50px;
+                background: pink;
+                position: absolute;
+                top:0px;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var str = '';
+                var len = 20;
+                var timer = null;
+                var num = 0;
+                var onOff = true;
+                //生成10个div
+                for(var i = 0; i<len; i++){
+                    str += "<div style='left:"+ i*60 +"px'></div>";
+                }
+                document.body.innerHTML = str;
+
+                var aDiv = document.getElementsByTagName('div');
+                document.onclick = function(){
+                    clearInterval(timer);
+                    if(onOff){
+                        timer = setInterval(function(){
+                            if(num < len){
+                                doMove(aDiv[num],'top',700,20,function(){
+                                    if(parseInt(getStyle(aDiv[len-1],'top')) == 700){
+                                        onOff = false;
+                                        num = 0;
+                                    }
+                                });
+                            }
+                            num ++ ;
+                            if(num === len){
+                                clearInterval(timer);
+                            }
+                        },30);
+                    }else{
+                        timer = setInterval(function(){
+                            if(num < len){
+                                doMove(aDiv[num],'top',0,20,function(){
+                                    if(parseInt(getStyle(aDiv[len-1],'top')) == 0){
+                                        onOff = true;
+                                        num = 0;
+                                    }
+                                });
+                            }
+                            num ++ ;
+                            if(num === len){
+                                clearInterval(timer);
+                            }
+                        },30);
+                    }
+                }
+
+
+
+                function getStyle(obj, attr){
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+                }
+
+
+                function doMove(obj, attr, limit, spv, endFun){
+                    spv = parseInt(getStyle(obj,attr)) > limit ? -spv : spv;
+
+                    clearInterval(obj.timer);
+                    obj.timer = setInterval(function (){
+                        var speed = parseInt(getStyle(obj,attr)) + spv;
+
+                        //向前或者向后
+                        if(speed > limit & spv > 0 || speed < limit && spv < 0){
+                            speed = limit; //因为都是speed = limit, 所以可以用||
+                        }
+
+
+                        obj.style[attr] = speed + 'px';
+                        if(speed == limit){
+                            clearInterval(obj.timer);
+                            endFun && endFun(); //这样写和if写是一样的
+                        }
+                    },30);
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

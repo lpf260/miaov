@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            #div1{
+                width: 10px;
+                height:100px;
+                background: red;
+                position: absolute;
+                top:50px;
+                left:0px;
+            }
+        </style>
+        <script src='./miaov.js'></script>
+        <script>
+            window.onload = function(){
+                var oBtn1 = document.getElementById('btn1');
+                var oDiv = document.getElementById('div1');
+                oBtn1.onclick = function(){
+                    //回调函数最后一个参数，表示执行完之后在进行执行的一个函数
+                    doMove(oDiv,'left',800,10,function(){
+                        doMove(oDiv,'top',600,20);
+                    });
+                }
+                function getStyle(obj, attr){
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+                }
+
+                function doMove(obj, attr, limit, spv, endFun){
+                    spv = parseInt(getStyle(obj,attr)) > limit ? -spv : spv;
+
+                    clearInterval(obj.timer);
+                    obj.timer = setInterval(function (){
+                        var speed = parseInt(getStyle(obj,attr)) + spv;
+
+                        //向前或者向后
+                        if(speed > limit & spv > 0 || speed < limit && spv < 0){
+                            speed = limit; //因为都是speed = limit, 所以可以用||
+                        }
+
+
+                        obj.style[attr] = speed + 'px';
+                        console.log(speed);
+                        if(speed == limit){
+                            clearInterval(obj.timer);
+                            endFun && endFun(); //这样写和if写是一样的
+                        }
+                    },30);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id='btn1' type='button' value="向前走" />
+        <div id='div1'></div>
+    </body>
+</html>
