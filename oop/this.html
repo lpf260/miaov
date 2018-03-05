@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script>
+        foo = function(){
+            this.myName = "Foo function.";
+
+        }
+        foo.prototype.sayHello = function(){
+            alert(this.myName);
+        }
+        foo.prototype.bar = function(){
+            var _this = this
+            setTimeout(_this.sayHello(), 1000);
+        }
+        var f = new foo;
+        f.bar()
+    </script>
 </head>
 <body>
-$END$
+
 </body>
 </html>

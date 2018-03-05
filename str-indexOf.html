@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>getElementsByTagName</title>
+        <style>
+
+        </style>
+        <script>
+            var str = "www.miaov.com";
+            alert(str.indexOf('m',5)); //这样表示从第五位开始往后找m   12
+            //indexOf返回-1表示没找到
+
+            var s = '妙味';
+            for(;str.indexOf(s,i) != -1;){
+                alert(str.indexOf(s,i));
+                i = str.indexOf(s,i) + s.length;
+            }
+
+            while(str.indexOf(s,i) != -1){
+                alert(str.indexOf(s,i));
+                i = str.indexOf(s,i) + s.length;
+            }
+            //lastIndexOf从最后开始找
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

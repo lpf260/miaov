@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>getElementsByTagName</title>
+        <style>
+
+        </style>
+        <script>
+            alert('刘鹏飞'>'二傻子'); //这里只比较第一个字符就可以了，比较的是charCodeAt()
+            alert('10000'>2); true 因为会进行隐士转化
+            alert('10000' > '2'); false会进行字符比较
+
+            //字符串截取
+            var str = '妙味课程是一支独具特色的IT培训团队';
+            alert(str.substring(0,2)); //妙味
+            alert(str.slice(0,2)); //妙味
+            alert(str.slice(2,0)); //不交换位置和substring不同
+            alert(str.slice(-2)); //substing中负数会被当作0而slice会从末尾开始找   团队
+            alert(str.slice(-4,-2)); //培训
+
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>json</title>
+        <style>
+
+        </style>
+        <script>
+
+            //数组去重
+            var arr = [1,2,3,4,1,1];
+            for(var i=0;i<arr.length;i++){
+                for(var j=i+1;j<arr.length;j++){
+                    console.log(j);
+                    //console.log(arr[j]);
+                    if(arr[i] == arr[j]){
+                        arr.splice(j,1);
+                        j--;
+                    }
+                }
+            }
+            console.log(arr);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

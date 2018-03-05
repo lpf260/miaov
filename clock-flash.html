@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>定时器</title>
+        <style>
+            img{
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                top:100px;
+                left:200px;
+            }
+            #img2{
+                left:500px;
+            }
+        </style>
+        <script src='./miaov.js'></script>
+        <script>
+            //事件对象 当前 系统的时间 对象  下面所有的都是number类型
+            console.log(new Date());
+            var myTime = new Date();
+            var iYear  = myTime.getFullYear(); //获取年份
+            var iMonth  = myTime.getMonth();    //获取月份
+            console.log(iYear);
+            console.log(iMonth); //所以正确的月份得+1
+            //同理getDay()  星期也是数字0 1 2   0标识星期日
+            /*
+                getFullYear()
+                getMonth() //月份js中是从0开始的
+                getDate()
+                getDay()
+                getHours()
+                getMinutes()
+                getSeconds()
+             */
+        </script>
+    </head>
+    <body>
+        <img src='./img/face1.jpg' id='img1' />
+        <img src='./img/face2.jpg' id='img2' />
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>json</title>
+        <style>
+
+        </style>
+        <script>
+            var json = { name : 'lpf',age : 32 }; //json里放任何东西都可以
+            //alert(json.name); //这样可以取出name中对应值
+
+            var arrUrl = [ 'img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg' ];
+        	var arrText = [ '文字一', '文字二', '文字三', '识文断字' ];
+            var ImgData = {
+                'url'  : [ 'img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg' ],
+                'text' : [ '文字一', '文字二', '文字三', '识文断字' ]
+            };
+            //alert(ImgData.url[2]);
+
+            var json2 = {'name':'miaov'};
+            json2.name = '妙味';
+            //alert(json2.name);
+
+
+            var json4 = {'name':'miaov',age:3,fun:'前端开发'};
+            for(var attr in json4){
+                //alert(attr); //键名
+                console.log(json4[attr]);
+            }
+
+            for(var attr in ImgData){
+                for( var i = 0;i<ImgData[attr].length;i++){
+                    console.log(ImgData[attr][i]);
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

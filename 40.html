@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>html属性</title>
+        <style>
+
+        </style>
+        <script>
+            window.onload = function (){
+                var oImg = document.getElementById('img1');
+                var onOff = true; //开关：布尔值
+                
+                oImg.onclick = function (){
+                    if( onOff ){
+                        oImg.src = "img/thumb1.jpg";
+                        onOff = false;
+                    }else{
+                        oImg.src = "img/thumb2.jpg";
+                        onOff = true;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <img id="img1" src="img/thumb1.jpg" />
+    </body>
+</html>

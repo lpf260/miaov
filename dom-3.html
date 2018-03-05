@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>json</title>
+        <style>
+            li{
+                width:20px;
+                height:30px;
+                background:red;
+                transition:5s;
+                margin:5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul id='ul'>
+            <li>121</li>
+            <li>1212</li>
+            <li>3</li>
+            <li>455</li>
+            <li>2123</li>
+            <li>231241</li>
+        </ul>
+    <script>
+        /*
+        元素节点：nodeType   返回一个数字  nodeType是节点的属性值
+        元素节点 nodeType返回数字1
+        document的nodeType返回数字9
+        文本节点返回3  childNodes  类数组
+
+        注释节点 8
+        属性节点 2
+        nodeValue查看节点属性值
+        nodeName查看属性名
+
+        children:  不是标准的属性，但是所有浏览器都支持
+        找到某个元素下所有元素子节点，所以不用childNodes用这个会省事好多
+        parentNode:  查找某个元素的父节点
+        */
+        var oUl = document.getElementById('ul');
+        var aLi = oUl.children;
+        console.log(aLi[0].parentNode); //找到了<ul id='ul'></ul>
+
+
+
+    </script>
+    </body>
+</html>

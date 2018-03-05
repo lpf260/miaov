@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				margin: 0;
+				padding: 0;
+				position: relative;
+				height: 170px;
+				overflow: hidden;
+			}
+			li{
+				list-style: none;
+				width: 120px;
+				height: 170px;
+				position: relative;
+				float: left;
+			}
+			div{
+				height: 340px;
+				position: absolute;
+				top: 0;
+			}
+			img{
+				width: 120px;
+				height: 170px;
+				vertical-align: top;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div><img src="clock/0.jpg" alt=""><img src="clock/0.jpg" alt=""></div>
+			</li>
+			<li>
+				<div><img src="clock/0.jpg" alt=""><img src="clock/0.jpg" alt=""></div>
+			</li>
+			<li>
+				<img src="clock/colon.jpg" alt="">
+			</li>
+			<li>
+				<div><img src="clock/0.jpg" alt=""><img src="clock/0.jpg" alt=""></div>
+			</li>
+			<li>
+				<div><img src="clock/0.jpg" alt=""><img src="clock/0.jpg" alt=""></div>
+			</li>
+			<li>
+				<img src="clock/colon.jpg" alt="">
+			</li>
+			<li>
+				<div><img src="clock/0.jpg" alt=""><img src="clock/0.jpg" alt=""></div>
+			</li>
+			<li>
+				<div><img src="clock/0.jpg" alt=""><img src="clock/0.jpg" alt=""></div>
+			</li>
+		</ul>
+		<script type="text/javascript">
+            var aDiv = document.getElementsByTagName('div');
+            var imgs = document.querySelectorAll('li>img');
+            var oldTime = getTimeNew();
+
+			for(var i=0;i<aDiv.length;i++){
+				aDiv[i].getElementsByTagName('img')[0].src = 'clock/'+oldTime[i]+'.jpg';
+			}
+
+
+
+            //开定时器自动更新时间
+            setInterval(function(){
+                //点的闪烁
+                for(var i=0;i<imgs.length;i++){
+                    imgs[i].src = 'clock/colon1.jpg';
+                }
+                //延迟半秒闪烁
+                setTimeout(function(){
+                    for(var i=0;i<imgs.length;i++){
+                        imgs[i].src = 'clock/colon.jpg';
+                    }
+                },500);
+                getTime();
+            },1000);
+
+            //获取当前时间
+            function getTimeNew(){
+                var myTime  = new Date();
+                //时
+                var myHour       = myTime.getHours();
+                var myMinute     = myTime.getMinutes();
+                var mySecond     = myTime.getSeconds();
+                var time = toTwo(myHour)+toTwo(myMinute)+toTwo(mySecond);
+                return time;
+            }
+            //获取当前时间
+            function getTime(){
+				var time = getTimeNew();
+                for(var i=0;i<aDiv.length;i++){
+                    if(oldTime[i] !== time[i]){
+                        slied(i,time);
+                    }
+                }
+				oldTime = time;
+            }
+
+            //将图片对应成当前时间显示
+            function slied(n,time){
+                var aImg = aDiv[n].getElementsByTagName('img');
+                //aImg[0].src = 'clock/'+time[n]+'.jpg';
+                //上滑切换图片 先将下面的图片改成当前时间
+                aImg[1].src = 'clock/'+time[n]+'.jpg';
+                move(aDiv[n],'top',-170,400,function(){
+                    aImg[0].src = 'clock/'+time[n]+'.jpg';
+                    aDiv[n].style.top = 0;
+                })
+            }
+
+            //将10以下的情况转化为00 01 02这种
+            function toTwo(n){
+                return n < 10 ? '0'+n : ''+n;
+            }
+
+            //运动函数
+            function move(obj,attr,target,duration,callback){
+                var b = parseFloat(getComputedStyle(obj)[attr]);
+                var c = target - b;
+                var d = duration;
+                var now = new Date().getTime();
+                obj[attr] = setInterval(function(){
+                    var t = new Date().getTime() - now;
+                    var value = b + c / d * t;
+                    obj.style[attr] = value+"px";
+                    if(t >= d){
+                        clearInterval(obj[attr]);
+                        obj.style[attr] = target+"px";
+                        callback&&callback();//当到达目标值的时候执行回调函数
+                    }
+                },30)
+            }
+		</script>
+	</body>
+</html>

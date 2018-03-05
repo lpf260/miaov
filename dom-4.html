@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>json</title>
+        <style>
+
+
+        </style>
+    </head>
+    <body>
+        <ul id='ul'>
+            <li><a href='javascript:;'>隐藏111</a></li>
+            <li><a href='javascript:;'>隐藏222</a></li>
+            <li><a href='javascript:;'>隐藏333</a></li>
+            <li><a href='javascript:;'>隐藏444</a></li>
+            <li><a href='javascript:;'>隐藏555</a></li>
+        </ul>
+    <script>
+        /*
+        元素节点：nodeType   返回一个数字  nodeType是节点的属性值
+        元素节点 nodeType返回数字1
+        document的nodeType返回数字9
+        文本节点返回3  childNodes  类数组
+
+        注释节点 8
+        属性节点 2
+        nodeValue查看节点属性值
+        nodeName查看属性名
+
+        children:  不是标准的属性，但是所有浏览器都支持
+        找到某个元素下所有元素子节点，所以不用childNodes用这个会省事好多
+        parentNode:  查找某个元素的父节点
+        */
+        //获取所有a标签
+        var aA = document.getElementsByTagName('a');
+        for(var i=0;i<aA.length;i++){
+            aA[i].onclick = function(){
+                this.parentNode.style.display = 'none';
+            }
+        }
+        //兄弟节点
+        var ul  = document.getElementById('ul');
+        var aLis = ul.children;
+        console.log(aLis[0].nextElementSibling);
+        aLis[0].nextElementSibling.style.background = 'red';
+        //找上面的兄弟节点
+        aLis[1].previousElementSibling.style.background = 'blue';
+
+    </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>json</title>
+        <style>
+            li{
+                width:20px;
+                height:30px;
+                background:red;
+                transition:5s;
+                margin:5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul id='ul'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    <script>
+        /*
+        元素节点：nodeType   返回一个数字  nodeType是节点的属性值
+        元素节点 nodeType返回数字1
+        document的nodeType返回数字9
+        文本节点返回3  childNodes  类数组
+
+        注释节点 8
+        属性节点 2
+        nodeValue查看节点属性值
+        nodeName查看属性名
+
+        children:  不是标准的属性，但是所有浏览器都支持
+        找到某个元素下所有元素子节点，所以不用childNodes用这个会省事好多
+        */
+        var oUl = document.getElementById('ul');
+        var lis = oUl.childNodes; //在这里其实并没有只返回li节点
+        console.log(lis.length); //如果只返回li应该是6, 而这里是13 因为childNodes会返回所有子节点，包括回车的空节点
+        document.onclick = function(){
+            for(var i=0;i<lis.length;i++){
+                //所以加上nodeType判断元素节点
+                if(lis[i].nodeType == 1){
+                    lis[i].style.width = '150px';
+                }
+            }
+        }
+    </script>
+    </body>
+</html>

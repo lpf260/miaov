@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>json</title>
+        <style>
+
+        </style>
+        <script>
+            //for in 也可以遍历对象
+            var str = '';
+            for (var attr in window){
+                str += attr+':'+window[attr];
+            }
+            //console.log(str);
+
+            //数组
+            var attr = [1,2,3];
+            var arr = new Array(1,2,3);
+            console.log(attr);
+            console.log(arr);
+            //但是特殊情况
+            var arr1 = new Array(4);
+            console.log(arr1); //undefined*4标识数组有4个长度，当只有一个数字的情况下
+            //给数组赋值长度
+            var arr2 = ['aaa',1,2,3];
+            arr2.length = 1;
+            console.log(arr2); //当改变数组长度之后，arr2就舍弃了第一个元素后面的东西
+            arr2.length = 0;
+            console.log(arr2); //这样做实质上是快速清空了数组
+
+            //字符串是不能定义长度的
+
+            //数组函数
+            var arr = [1,2,3];
+            console.log(arr.push(4)); //push返回添加完之后数组的长度
+
+            arr.unshift(0);
+            console.log(arr); //在数组最前面添加一个元素
+
+            arr.pop(); //舍弃掉数组后一个  返回值为舍弃掉的那个元素
+            arr.shift(); //舍弃掉数组第一个 返回值为舍弃掉的那个元素
+
+            //交换位置原理
+            arr.unshift(arr.pop()); // 将弹出来的元素放在数组最前
+
+            //splice数组内方法
+            var newArr = ['TM','LPF','ZXY','DP','ER'];
+            //删除TM  返回值为删除的元素，后面也一样，只返回删除的内容,中间数字为0则表示什么都不删除
+            newArr.splice(0); //这样就删掉了第一位
+            newArr.splice(0,2); //从第0个开始，删除两个元素
+            //替换
+            newArr.splice(0,1,'uzi'); //将第一个元素替换为uzi
+            //添加元素
+            arr.splice(1,0,'clearlove7'); //在第一个和第二个元素之间添加元素
+
+
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
