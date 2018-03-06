@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'f';
+    src: url("../fonts/fontawesome-webfont.woff");
+}
+.rocket{
+    font-family: f;
+    font-size: 50px;
+}
+.rocket::before{
+    content: "\f124";
+}

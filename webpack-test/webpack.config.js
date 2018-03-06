@@ -25,6 +25,17 @@ module.exports = {
         }, {
            test: /\.css$/,
            use: ['style-loader','css-loader']
+        },{
+            test:/\.(png|jpg|gif|svg|jpeg)$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            }]
+        },{
+            test: /\.(ttf|woff|woff2|eot)$/,
+            use: ['file-loader']
         }]
     },
     devServer: {
